@@ -1,0 +1,207 @@
+﻿@model Giveonline.ViewModels.ProductVM
+@{
+    ViewBag.Title = "ProductEdit";
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+}
+
+<div id="page-content">
+    <div class="content-header">
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-shopping-basket"></i> Orders</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-shopping-cart"></i> Order View</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-shopping-bag"></i> Products</a>
+            </li>
+            <li class="active">
+                <a href="#"><i class="fa fa-plus"></i> Product Create</a>
+            </li>
+            @*<li>
+                    <a href="#"><i class="fa fa-pencil"></i> Product Edit</a>
+                </li>*@
+            <li>
+                <a href="#"><i class="fa fa-user"></i> Customer View</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="block">
+                <div class="block-title">
+                    <h2><i class="fa fa-plus"></i> <strong>General</strong> Data</h2>
+                </div>
+                <form action="/admin/ProductCreate" method="post" class="form-horizontal form-bordered">
+
+
+
+                    <input type="hidden" name="Id" value="@Model.Product.Id" />
+
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="CategoryId">Kategori</label>
+                        <div class="col-md-8">
+                            <select id="CategoryId" class="form-control select-chosen" name="CategoryId">
+                                <option @*hidden*@ value="@Model.Product.Category.Id">@Model.Product.Category.Title</option>
+                                @foreach (var category in Model.Categories.Where(x => x.Id != Model.Product.CategoryId))
+                                {
+                                    <option value="@category.Id">@category.Title</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="SizeId">Størrelse</label>
+                        <div class="col-md-8">
+                            <select multiple class="form-control" name="SizeId">
+                                <option hidden value="0">Vælg Kategori</option>
+                                @foreach (var size in Model.Sizes)
+                                {
+                                    <option value="@size.Id">@size.Title</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="Title">Title</label>
+                        <div class="col-md-9">
+                            <input type="text" value="@Model.Product.Title" class="form-control" name="Title" placeholder="Indtast title">
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="Description">Beskrivelse</label>
+                        <div class="col-md-9">
+                            <textarea type="text" class="form-control" name="Description" placeholder="Beskrivelse">@Model.Product.Description</textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="Price">Pris</label>
+                        <div class="col-md-9">
+                            <input type="text" value="@Model.Product.Price" class="form-control" name="Price" placeholder="Indtast Pris">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="image">Image</label>
+                        <div class="col-md-8">
+                            <img class="img-responsive" style="height: 200px; width: auto" src="/Uploads/@Model.Product.ImageUrl" />
+                            <input id="image" type="file" name="file" class="form-control" placeholder="Upload et nyt billede" />
+                        </div>
+                    </div>
+
+                    @*<div class="form-group">
+                            <label class="col-md-3 control-label" for="InStock">På Lager</label>
+                            <div class="col-md-9">
+                                <input type="checkbox" value="" name="InStock" @Html.Raw(Model.Product.InStock ? "checked" : "")>
+                            </div>
+                        </div>*@
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="Amount">Antal</label>
+                        <div class="col-md-9">
+                            <input type="number" value="@Model.Product.Amount" class="form-control" name="amount" placeholder="indtast antal">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="OnSale">På Udsalg?</label>
+                        <div class="col-md-9">
+                            <label class="switch switch-primary">
+                                <input type="checkbox" id="product-status" name="OnSale" checked=""><span></span>
+                            </label>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group form-actions">
+                        <div class="col-md-9 col-md-offset-3">
+                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-floppy-o"></i> Gem</button>
+                            <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Fortryd</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+       
+        <div class="col-lg-6">
+            <div class="block">
+                <div class="block-title">
+                    <h2><i class="fa fa-picture-o"></i> <strong>Product</strong> Images</h2>
+                </div>
+                <div class="block-section">
+                    <form action="page_ecom_product_edit.php" class="dropzone dz-clickable"><div class="dz-default dz-message"><span>Drop files here to upload</span></div></form>
+                </div>
+                <table class="table table-bordered table-striped table-vcenter">
+                    <tbody>
+                        <tr>
+                            <td style="width: 20%;">
+                                <a href="img/placeholders/photos/photo11.jpg" data-toggle="lightbox-image">
+                                    <img src="img/placeholders/photos/photo11.jpg" alt="" class="img-responsive center-block" style="max-width: 110px;">
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <label class="switch switch-primary">
+                                    <input type="checkbox" checked=""><span></span>
+                                </label>
+                                Cover
+                            </td>
+                            <td class="text-center">
+                                <a href="javascript:void(0)" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="img/placeholders/photos/photo13.jpg" data-toggle="lightbox-image">
+                                    <img src="img/placeholders/photos/photo13.jpg" alt="" class="img-responsive center-block" style="max-width: 110px;">
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <label class="switch switch-primary">
+                                    <input type="checkbox"><span></span>
+                                </label>
+                                Cover
+                            </td>
+                            <td class="text-center">
+                                <a href="javascript:void(0)" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="img/placeholders/photos/photo9.jpg" data-toggle="lightbox-image">
+                                    <img src="img/placeholders/photos/photo9.jpg" alt="" class="img-responsive center-block" style="max-width: 110px;">
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <label class="switch switch-primary">
+                                    <input type="checkbox"><span></span>
+                                </label>
+                                Cover
+                            </td>
+                            <td class="text-center">
+                                <a href="javascript:void(0)" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,683 @@
+﻿@import "partials/_fonts.scss";
+
+
+
+
+body {
+    background-color: #f3eeea;
+    margin-bottom: 0;
+    font-family: "ProximaNova-Regular";
+}
+
+#page-container {
+    margin: 0 auto;
+    width: 100%
+}
+
+
+#page-content {
+    margin: 0 auto;
+    width: 100%;
+    min-height: 1150px;
+}
+
+.margin-left1 {
+    margin-left: 38px;
+}
+
+.margin-left2 {
+    margin-left: 47px;
+}
+
+.navbar-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+
+    .container {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .navbar {
+        padding-right: 15px;
+        padding-left: 15px;
+        height: 150px;
+
+        .container {
+            width: auto;
+        }
+    }
+}
+
+
+
+.navbar-default {
+    background-color: #fff;
+    border-color: #fff;
+    height: 121px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #668333;
+    margin-top: 82.5px;
+    margin-bottom: 22px;
+}
+
+
+.logo {
+    padding-top: 20px;
+}
+/*.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #fff;
+}*/
+
+/*.searchbar {
+    background-image: url('../Images/Searchbar.png');
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: contain;
+    width:309px;
+    height:33px;
+}*/
+
+/*Search*/
+/*.input-group {
+   
+    .input-group-btn { 
+        background-color: #4999af;
+
+    }
+}*/
+
+
+#custom-search-input {
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+
+    .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        background-color: rgba(73, 153, 175, 0.65);
+        border: none;
+        border-radius: 0px;
+        color:#fff;
+        &::-webkit-input-placeholder{
+            color:#fff;
+        }
+        
+    }
+}
+
+#custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    color: #f5f5f5;
+}
+
+.search-query:focus + button {
+    z-index: 3;
+}
+
+::-webkit-input-placeholder { /* Chrome */
+    color: black;
+}
+
+
+.Searchbar-align {
+    margin-left: 103px;
+    margin-bottom: -68px;
+    margin-top: 20px;
+    width: 30%;
+}
+
+.element {
+    display: inline-block;
+    background-color: rgba(73, 153, 175, 0.65);
+    height: 34px;
+    width: 12px;
+    font-size: 1px;
+    padding: 1px;
+    color: #fff;
+    margin-right: 9px;
+    margin-left: 242px;
+    transform: skewY(145deg);
+    animation-direction: alternate;
+    opacity: .7;
+    margin-top: 10px;
+    z-index: 0;
+}
+
+.footerbox {
+    background-color: #525252;
+    height: 223px;
+}
+
+.Newsletterheading {
+    font-family: "ProximaNova-Regular";
+    color: #fff;
+    padding: 20px;
+}
+
+.NewslettersmallHeading {
+    color: #fff;
+    font-family: "ProximaNova-Regular";
+    font-size: 17px;
+}
+
+.NewsletterheadingSocial {
+    font-family: "ProximaNova-Regular";
+    color: #fff;
+    padding: 20px;
+    margin-left: 40px !important;
+    text-align: center;
+}
+
+.btn-lg {
+    width: 73%;
+    margin-left: 20px;
+}
+
+
+.socialIcon {
+    margin-left: 25px;
+}
+
+hr {
+    border-top: 1px solid #6b6b6a;
+}
+
+.footertext {
+    font-family: "ProximaNova-Regular";
+    color: #b3b3b3;
+}
+
+
+/*INDEX*/
+.carousel {
+    height: 500px;
+    margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+    height: 500px;
+    background-color: #777;
+}
+
+.carousel-inner > .item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 500px;
+}
+
+.sliderbox {
+    background-color: rgba(60, 140, 161, 0.75);
+    height: 159px;
+    z-index: 200000;
+    margin-top: -200px;
+    margin-left: 48px;
+
+    .sliderboxHeading {
+        font-family: "ProximaNova-Regular";
+        color: #fff;
+    }
+
+    .sliderboxText {
+        color: #fff;
+        margin-top: -3px;
+    }
+}
+
+
+.sliderboxText1 {
+    color: #fff;
+
+    .middel {
+        margin-left: 134px;
+        margin-top: -34px;
+    }
+}
+
+
+.storiesIndex {
+    margin-left: 39px;
+    width: 100%;
+}
+
+.storiesIndexBoxHeading {
+    font-family: ProximaNova-Bold;
+    color: #fff;
+    font-size: 45px;
+    margin-top: -124px;
+    text-shadow: 2px 1px rgba(157, 157, 157, 0.65);
+}
+
+.storiesIndexBox {
+    background-color: rgba(60,140,161,.75);
+    height: 51px;
+    z-index: 4;
+    margin-top: -51px;
+    margin-left: 62px;
+    width: 62%;
+
+
+
+    .storiesIndexBoxText {
+        font-family: "ProximaNova-Regular";
+        color: #fff;
+        margin-left: 86px;
+        font-size: 16px;
+        padding: 15px;
+
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+}
+
+.giveIndex {
+    margin-left: 27px;
+    width: 100%;
+}
+
+.giveIndexBoxHeading {
+    font-family: ProximaNova-Bold;
+    color: #fff;
+    font-size: 45px;
+    margin-top: -124px;
+    text-shadow: 2px 1px rgba(157,157,157,.65);
+}
+
+.giveIndexBox {
+    background-color: rgba(111, 136, 74, 0.75);
+    height: 51px;
+    z-index: 4;
+    margin-top: -51px;
+    margin-left: 82px;
+    width: 62%;
+
+    .giveIndexBoxText {
+        font-family: "ProximaNova-Regular";
+        color: #fff;
+        margin-left: 17px;
+        font-size: 16px;
+        padding: 15px;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+}
+
+
+.eventIndex {
+    margin-left: 11px;
+    width: 100%;
+}
+
+.eventIndexBoxHeading {
+    font-family: ProximaNova-Bold;
+    color: #fff;
+    font-size: 45px;
+    margin-top: -124px;
+    text-shadow: 2px 1px rgba(157,157,157,.65);
+    margin-left: 48px;
+}
+
+.eventIndexBox {
+    background-color: rgba(231, 126, 109, 0.75);
+    height: 51px;
+    z-index: 4;
+    margin-top: -51px;
+    margin-left: -32px;
+    width: 62%;
+
+    .eventIndexBoxText {
+        font-family: "ProximaNova-Regular";
+        color: #fff;
+        margin-left: 61px;
+        font-size: 16px;
+        padding: 15px;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+}
+
+
+
+.UpcommingHeading {
+    color: #4999af;
+    font-family: "ProximaNova-Regular";
+    font-size: 22px;
+    margin-left: 23px;
+    margin-top: 35px;
+    margin-bottom: 23px;
+}
+
+.date-calendar {
+    width: 70px;
+    text-align: center;
+    color: #3c763d;
+}
+
+.date-calendar-num {
+    height: 53px;
+    line-height: 77px;
+    font-size: 32px;
+    font-weight: 300
+}
+
+.date-calendar-month {
+    height: 38px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: "ProximaNova-Regular";
+}
+
+
+.eventText {
+    color: #f1715e;
+    font-family: "ProximaNova-Regular";
+    font-size: 17px;
+    padding-top: 20px;
+    margin-bottom: -5px;
+    margin-left: -32px;
+}
+
+.eventTextSmall {
+    font-family: "ProximaNova-Regular";
+    color: #5f5f5f;
+    font-size: 13px;
+    margin-left: -32px;
+}
+
+.event-btn {
+    width: 100% !important;
+    margin-top: 30px;
+}
+
+
+.divider {
+    border-top: 1px solid #6b6b6a;
+}
+
+.GiveHeading {
+    color: #4999af;
+    font-family: "ProximaNova-Regular";
+    font-size: 22px;
+    margin-left: 0;
+    margin-top: 35px;
+    margin-bottom: 23px;
+}
+
+.givetext {
+    font-family: "ProximaNova-Regular";
+    font-size: 22px;
+    margin-left: 23px;
+}
+
+.giveLink {
+    color: #f1715e;
+    font-family: "ProximaNova-Regular";
+    font-size: 14px;
+    margin-left: -15px;
+}
+
+/*GIVEonline*/
+
+.bannerImage {
+    background-image: url('../../../Uploads/banner.png');
+    background-size: cover;
+    height: 400px;
+}
+
+.sliderboxBanner {
+    background-color: rgba(60,140,161,.75);
+    height: 68px;
+    z-index: 200000;
+    margin-top: 302px;
+    margin-left: 48px;
+    width: 21%;
+
+    .sliderboxHeading {
+        color: #fff;
+    }
+}
+
+.imgGive {
+    width: 88%;
+    margin-left: 29px;
+    margin-top: 30px;
+}
+
+.imgGive2 {
+    width: 88%;
+    margin-left: -39px;
+    margin-top: 30px;
+}
+
+.imgGive3 {
+    width: 88%;
+    margin-left: -108px;
+    margin-top: 30px;
+}
+
+.giveonlineIndexBox1 {
+    background-color: #f1715e;
+    height: 53px;
+    margin-top: -53px;
+    width: 88.5%;
+    margin-left: -8px;
+
+    .giveonlineIndexBox2 {
+        background-color: #668333;
+        height: 53px;
+        margin-top: -49px;
+        width: 21%;
+    }
+}
+
+
+
+.giveonlineIndexBoxText1 {
+    font-family: "ProximaNova-Regular";
+    font-size: 17px;
+    color: #FFF;
+    margin-top: 15px
+}
+
+.giveonlineIndexBoxText2 {
+    font-family: "ProximaNova-Regular";
+    font-size: 14px;
+    color: #FFF;
+    margin-top: 5px;
+    text-align: center;
+    margin-left: -3px;
+}
+
+/*Events*/
+
+.bannerImage {
+    background-image: url('../../../Uploads/banner.png');
+    background-size: cover;
+    height: 400px;
+}
+
+.sliderboxBanner {
+    background-color: rgba(60,140,161,.75);
+    height: 68px;
+    z-index: 200000;
+    margin-top: 302px;
+    margin-left: 48px;
+    width: 21%;
+
+    .sliderboxHeading {
+        color: #fff;
+    }
+}
+
+
+/*shop*/
+
+.imgShop {
+    width: 88%;
+    margin-left: 29px;
+    margin-top: 30px;
+    border: 1px solid #ddd;
+}
+
+.imgShop2 {
+    width: 88%;
+    margin-left: -39px;
+    margin-top: 30px;
+    border: 1px solid #ddd;
+}
+
+.imgShop3 {
+    width: 88%;
+    margin-left: -108px;
+    margin-top: 30px;
+    border: 1px solid #ddd;
+}
+
+.shoponlineIndexBox1 {
+    background-color: #f1715e;
+    height: 53px;
+    margin-top: -53px;
+    width: 88.5%;
+    margin-left: -8px;
+
+    .shoponlineIndexBox2 {
+        background-color: #4999af;
+        height: 53px;
+        margin-top: -49px;
+        width: 21%;
+    }
+}
+
+
+
+.shoponlineIndexBoxText1 {
+    font-family: "ProximaNova-Regular";
+    font-size: 17px;
+    color: #FFF;
+    margin-top: 15px
+}
+
+.shoponlineIndexBoxText2 {
+    font-family: "ProximaNova-Regular";
+    font-size: 14px;
+    color: #FFF;
+    margin-top: 18px;
+    text-align: center;
+    margin-left: -2px;
+}
+
+/*About*/
+
+.dividerabout {
+    padding: 15px;
+    border-top: 1px solid #d2cdc9;
+}
+
+
+.about_a {
+    color: #599fb3;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav > li > a:focus, .nav > li > a:hover {
+    text-decoration: none;
+    background-color: transparent;
+    color: #f1715e;
+}
+
+.nav > li > a:focus, .nav > li > a:hover {
+    color: #f1715e;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.about_a :hover {
+    color: #f1715e;
+    text-decoration: none;
+    background-color: none;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+    color: #f1715e;
+    background-color: transparent;
+    font-size: 20px;
+}
+
+
+
+
+.nav-pills {
+    li {
+        span {
+            display: none;
+        }
+
+        &.active {
+            span {
+                display: inline-block;
+                padding-right: 10px;
+            }
+        }
+    }
+}
+
+/*Newsletter modal*/
+
+.panel-primary > .panel-heading {
+    color: #fff;
+    background-color: #3b8ba1;
+    border-color: #d6e9c6;
+}
+
+
+.btn-primary {
+    background-color: #3b8ba1;
+}
+
+/*Search*/
+
+.current {
+    color: green;
+}
+
+#pagin li {
+    display: inline-block;
+}

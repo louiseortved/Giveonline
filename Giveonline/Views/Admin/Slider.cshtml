@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Giveonline.Models.Slider>
+@{
+    ViewBag.Title = "Slider";
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+}
+
+<div id="page-content">
+    <div class="content-header">
+
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="/admin/index"><i class="fa fa-tachometer"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="/admin/eventlist"><i class="fa fa-calendar"></i> Events</a>
+            </li>
+            <li>
+                <a href="/admin/donationlist"><i class="fa fa-money"></i> Donations</a>
+            </li>
+            <li>
+                <a href="/admin/storieslist"><i class="fa fa-folder-open"></i> Stories</a>
+            </li>
+            <li class="active">
+                <a href="/admin/Slider"><i class="fa fa-picture-o"></i> Slider</a>
+            </li>
+            <li>
+                <a href="/admin/contentlist"><i class="fa fa-users"></i> About Us</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row text-center">
+        <div class="col-sm-6 col-lg-6">
+            <a href="/Admin/SliderCreate" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background-success">
+                    <h4 class="widget-content-light"><strong>Add New</strong> Image to slider(Index)</h4>
+                </div>
+                <div class="widget-extra-full"><span class="h2 text-success animation-expandOpen"><i class="fa fa-plus"></i></span></div>
+            </a>
+        </div>
+
+
+        <div class="col-sm-6 col-lg-6">
+            <a href="javascript:void(0)" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background-dark">
+                    <h4 class="widget-content-light"><strong>All</strong> Contents</h4>
+                </div>
+                <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">42</span></div>
+            </a>
+        </div>
+    </div>
+    <div class="block block-alt-noborder">
+        <h3 class="sub-header">
+          Sliders  <small>..se hvilke billeder, der findes i slideren (der vises de 4 første).</small>
+        </h3>
+
+        <table class="table table-striped">
+            <thead>
+                <tr class="row-name">
+                    <th>Image</th>
+               
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            @foreach (var slider in Model)
+            {
+
+                <tbody>
+                    <tr class="row-content" data-id="@slider.Id">
+
+                        <td>
+                            @if (slider.ImageUrl.Length > 0)
+                            {
+
+
+                                <img class="img-responsive" style="height: 100px; width: auto" src="~/Uploads/slider/@slider.ImageUrl"  />
+
+                            }
+                            else
+                            {
+                                <img class="img-responsive" style="height: 75px; width: auto" src="~/Content/styles/Images/noImage.png" />
+
+                            }
+
+                        </td>
+
+
+
+                        <td>
+                            <a class="btn btn-danger edit" href="/admin/contentDelete/@slider.Id" aria-label="Settings">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+
+                            <a class="btn btn-info edit" href="@Url.Action("ContentEdit", new {id = slider.Id})" ar aria-label="Settings">
+                                <i class="fa fa-edit" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+
+        </table>
+    </div>
+</div>
+

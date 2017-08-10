@@ -1,0 +1,126 @@
+﻿@model IEnumerable<Giveonline.Models.Story>
+@{
+    ViewBag.Title = "Stories";
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+}
+
+
+<div id="page-content">
+    <div class="content-header">
+
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="/admin/index"><i class="fa fa-tachometer"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="/admin/eventlist"><i class="fa fa-calendar"></i> Events</a>
+            </li>
+            <li>
+                <a href="/admin/donationlist"><i class="fa fa-money"></i> Donations</a>
+            </li>
+            <li class="active">
+                <a href="/admin/storieslist"><i class="fa fa-folder-open"></i> Stories</a>
+            </li>
+            <li>
+                <a href="/admin/Slider"><i class="fa fa-picture-o"></i> Slider</a>
+            </li>
+            <li>
+                <a href="/admin/contentlist"><i class="fa fa-users"></i> About Us</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row text-center">
+        <div class="col-sm-6 col-lg-3">
+            <a href="/Admin/EventCreate" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background-success">
+                    <h4 class="widget-content-light"><strong>Add New</strong> Event</h4>
+                </div>
+                <div class="widget-extra-full"><span class="h2 text-success animation-expandOpen"><i class="fa fa-plus"></i></span></div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a href="javascript:void(0)" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background-danger">
+                    <h4 class="widget-content-light"><strong>Afholdte</strong> Events</h4>
+                </div>
+                <div class="widget-extra-full"><span class="h2 text-danger animation-expandOpen">71</span></div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a href="javascript:void(0)" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background-dark">
+                    <h4 class="widget-content-light"><strong>Top</strong> Events</h4>
+                </div>
+                <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">20</span></div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a href="javascript:void(0)" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background-dark">
+                    <h4 class="widget-content-light"><strong>All</strong> Events</h4>
+                </div>
+                <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">42</span></div>
+            </a>
+        </div>
+    </div>
+    <div class="block block-alt-noborder">
+        <h3 class="sub-header">
+            Stories <small>..."historier" skrevet om de enkelte events</small>
+        </h3>
+
+        <table class="table table-striped">
+            <thead>
+            <tr class="row-name">
+                <th>Billede</th>
+                <th>Dato</th>
+                <th>Til Event</th>
+                <th>Title</th>
+                <th>Indhold</th>
+                <th>Skrevet af:</th>
+                <th>Actions</th>
+
+            </tr>
+
+            </thead>
+            @foreach (var story in Model)
+            {
+                <tbody>
+                <tr class="row-content" data-id="@story.Id">
+
+                    <td style="width: 200px">
+                        @*@if (story.ImageUrl.Length > 0)*@
+                        @*{*@
+                            @*<img class="img-responsive" style="height: 100px; width: auto" src="~/Uploads/@story.ImageUrl" alt=@story.Title />*@
+
+                        @*}*@
+                        @*else
+                        {*@
+                            <img class="img-responsive" style="height: 75px; width: auto" src="~/Content/styles/Images/noImage.png" />
+
+                        @*}*@
+
+                    </td>
+                        
+                    <td style="width: 200px">@story.Event.DateOfEvent</td>
+                    <td style="width: 200px">@story.Event.Title</td>
+                    <td style="width: 200px">@story.Title</td>
+                    <td style="width: 300px">@story.Content</td>
+                    <td style="width: 300px">@story.Author</td>
+
+                    <td>
+                        <a class="btn btn-danger edit" href="/admin/StoriesDelete/@story.Id" aria-label="Settings">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+
+                    
+                    </td>
+                </tr>
+
+                </tbody>
+            }
+        </table>
+
+       
+    </div>
+</div>
+

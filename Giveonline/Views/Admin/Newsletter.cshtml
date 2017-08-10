@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Giveonline.Models.Newsletter>
+
+
+@{
+    ViewBag.Title = "Newsletter";
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+}
+
+<div id="page-content">
+    <div class="content-header">
+        <div class="header-section">
+            <h1>
+                <i class="fa fa-file"></i>Alle nyhedsbreve<br><small>En liste af alle nyhedsbreve</small>
+            </h1>
+        </div>
+    </div>
+    <ul class="breadcrumb breadcrumb-top">
+        <li>Nyhedsbreve</li>
+        <li>Liste af nyhedsbreve</li>
+
+    </ul>
+    <div class="block block-alt-noborder">
+        <a class="btn-top btn btn-primary pull-right" style="margin-right: 15px;" href="/admin/NewsletterCreate"> <span class="fa fa-plus"></span> Create New</a>
+        <h3 class="sub-header">
+            Nyhedsbreve <small>....en liste af alle nyhedsbreve</small>
+        </h3>
+
+        <table class="table table-striped">
+
+            <thead>
+            <tr class="row-name">
+                <th>Title</th>
+            </tr>
+            </thead>
+
+            <tbody>
+                
+                
+            @foreach (var news in Model)
+            {
+                <tr class="row-content">
+                    <td>@news.Title</td>
+                    <td>@Html.Raw(news.HtmlContent)</td>      @*lav modal med nyhedsbrev*@
+                    <td style="text-align: right">
+                        <a class="btn btn-danger edit" href="/admin/NewsletterDelete/@news.Id" aria-label="Settings">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                  
+                        <a class="btn btn-info edit" href="@Url.Action("NewsletterEdit", new {id = news.Id})" aria-label="Settings">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-success edit" href="@Url.Action("NewsletterSend", new {id = news.Id})" aria-label="Settings">
+                            <i class="fa fa-send" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+

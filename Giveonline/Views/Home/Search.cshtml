@@ -1,0 +1,112 @@
+﻿@using System.Management
+@model Giveonline.ViewModels.SearchVM
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/Frontend/_Layout.cshtml";
+}
+
+
+<div id="page-content">
+    <div class="row">
+        <div class="col-md-12 bannerImage">
+
+            <div class="col-md-4 col-md-push-1 sliderboxBanner">
+                <h2 class="sliderboxHeading">
+                    <b>@ViewBag.Title</b>
+                </h2>
+            </div>
+        </div>
+    </div>
+    @if (Request.QueryString.Count != 0)
+    {
+
+
+
+        <div class="col-md-6 col-md-push-1 margin-left1">
+            @if (Model.Events.Any())
+            {
+                foreach (var item in Model.Events)
+                {
+
+                    <div class="col-md-12">
+                        <div class="col-md-6">  
+                            <h4 class="UpcommingHeading"><a href="/home/upcommingevents">@item.Title</a></h4>
+                            <p class="eventIndexBoxText">@item.Description</p>
+                      
+                            @*@Html.Raw(TextFormat.CropText(item.Description, 300, true));
+                            @Html.ActionLink("Read more", "Details", "Home", new { id = (object)item.ID }, new { @class = "more markered" })*@
+                  
+                            <img class="img-responsive img-thumbnail" src="/Uploads/@item.ImageUrl" alt="@item.Title"/>
+                        </div>  
+                       
+                    </div>
+                 
+                }
+            }
+
+
+            else if (Model.Products.Any())
+            {
+
+
+                foreach (var item in Model.Products)
+                {
+                    <div class="col-md-12">
+                        <div class="col-md-6">  
+                            <h4 class="UpcommingHeading"><a href="/home/shop">@item.Title</a></h4>
+                            <p class="eventIndexBoxText">@item.Description</p>
+                      
+                        @*@Html.Raw(TextFormat.CropText(item.Description, 300, true));
+                            @Html.ActionLink("Read more", "Details", "Home", new { id = (object)item.ID }, new { @class = "more markered" })*@
+                  
+                        <img class="img-responsive img-thumbnail" src="/Uploads/@item.ImageUrl" alt="@item.Title"/>
+                    </div>  
+                       
+                    </div>
+                }
+            }
+
+            else
+            {
+
+                <h5 class="UpcommingHeading">NO MATCH FOUND</h5>
+            }
+
+
+
+        </div>
+
+
+    }
+
+    @*<div class="col-md-6 col-md-push-1 margin-left1">
+                    if (Model.Count() == 0)
+                    {
+                    <h5 class="NewslettersmallHeading">NO MATCH FOUND</h5>
+                    }
+                    else{
+                    foreach (var item in Model.Events)
+                    {
+                        <h4 class="UpcommingHeading"><a href="/home/UpcommingEvents">item.Title</a></h4>
+                    }
+                    }
+
+                </div>
+                <div class="col-md-6 col-md-push-1 margin-left1">
+                    @foreach (var item in Model.Donations)
+                    {
+                        <h4 class="UpcommingHeading"><a href="/home/GIVEonline">@item.Title</a></h4>
+                    }
+                </div>
+                <div class="col-md-6"></div>
+
+
+
+
+            </div>
+        }*@
+
+
+</div>
+
+

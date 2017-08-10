@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Giveonline.Models.Category>
+
+
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+}
+
+<div id="page-content">
+    <div class="content-header">
+        <div class="header-section">
+            <h1>
+                <i class="fa fa-file"></i>Alle kategorier<br><small>En liste af alle kategorier</small>
+            </h1>
+        </div>
+    </div>
+    <ul class="breadcrumb breadcrumb-top">
+        <li>Kategorier</li>
+        <li>Liste af kategorier</li>
+
+    </ul>
+    <div class="block block-alt-noborder">
+        <a class="btn-top btn btn-primary pull-right" style="margin-right: 15px;" href="/admin/CategoryCreate"> <span class="fa fa-plus"></span> Create New</a>
+        <h3 class="sub-header">Kategorier <small>....en liste af alle kategorier</small>
+        </h3>
+
+        <table class="table table-striped">
+          
+            <thead>
+            <tr class="row-name">
+                <th>Title</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            @foreach (var category in Model)
+            {
+                <tr class="row-content">
+                    <td>@category.Title</td>
+                    <td style="text-align: right">
+                        <a class="btn btn-danger edit" href="/admin/CategoryDelete/@category.Id" aria-label="Settings">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                        &nbsp
+                        <a class="btn btn-info edit" href="@Url.Action("CategoryEdit", new {id = category.Id})" aria-label="Settings">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@*<div class="row">
+    <div class="col-md-8 col-md-offset-2 well">
+
+        <h2 style="text-align: center;"> Kategorier </h2>
+        <hr>
+        <div class="col-md-12">
+
+        </div>
+    </div>
+</div>*@

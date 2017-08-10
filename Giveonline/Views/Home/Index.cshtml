@@ -1,0 +1,218 @@
+﻿@model Giveonline.ViewModels.ContentVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Frontend/_Layout.cshtml";
+}
+
+<div id="page-content">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+        <div class="carousel-inner" role="listbox">
+
+            @foreach (var img in Model.Sliders)
+            {
+                if (img == Model.Sliders.FirstOrDefault())
+                {
+                    <div class="item active">
+
+                        <img class="first-slide" src="~/Uploads/slider/@img.ImageUrl" alt="First slide">
+                        <div class="container">
+                            <div class="carousel-caption">
+
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="item">
+
+                        <img class="first-slide" src="~/Uploads/slider/@img.ImageUrl" alt="First slide">
+                        <div class="container">
+                            <div class="carousel-caption">
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+
+            <div class="col-md-4 col-md-push-1 sliderbox">
+                <h2 class="sliderboxHeading"><b>Welcome to GIVEonline´s<br /> website</b></h2>
+
+                <h3 class="sliderboxText1 middel" style="margin-top: -40px;
+                                      margin-left: 124px;">
+                    which runs online
+                </h3>
+                <h3 class="sliderboxText"> collections of funding</h3>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-10 col-md-push-1">
+            <div class="col-md-4">
+                <img class="storiesIndex img-responsive" src="~/Content/styles/Images/stories.png" />
+                <div class="col-md-10 col-md-push-4">
+                    <h3 class="storiesIndexBoxHeading">STORIES</h3>
+                </div>
+                <div class="col-md-10 col-md-push-1 storiesIndexBox">
+                    <p class="storiesIndexBoxText">
+                        <a href="/Home/StoriesFromEvent">Read giving stories <span class="arrow_carrot-right_alt2"></span></a>
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-md-4 ">
+                <img class="giveIndex img-responsive" src="~/Content/styles/Images/giveOnline.png" />
+                <div class="col-md-10 col-md-push-3">
+                    <h3 class="giveIndexBoxHeading">GIVE ONLINE</h3>
+                </div>
+                <div class="col-md-10 col-md-push-1 giveIndexBox">
+
+                    <p class="giveIndexBoxText">
+                        <a href="Home/GIVEonline">
+                            Quick and easy online giving <span class="arrow_carrot-right_alt2"></span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <img class="eventIndex img-responsive" src="~/Content/styles/Images/events.png" />
+                <div class="col-md-10 col-md-push-1">
+                    <h3 class="eventIndexBoxHeading">EVENTS</h3>
+                </div>
+                <div class="col-md-7 col-md-push-1 eventIndexBox">
+
+                    <p class="eventIndexBoxText">
+                        <a href="Home/upcommingevents">
+                            Check out upcomming <span class="arrow_carrot-right_alt2"></span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="col-md-10 col-md-push-2">
+                <h4 class="UpcommingHeading">UPCOMMING EVENTS</h4>
+                <div class="col-md-12 divider"></div>
+            </div>
+            @foreach (var item in Model.Events)
+            {
+
+                <div class="col-md-10 col-md-push-2">
+                    <div class="col-md-2">
+                        <div class="date-calendar">
+                            <div class="date-calendar-num">@item.DateOfEvent.ToString("dd")</div>
+                            <div class="date-calendar-month">@item.DateOfEvent.ToString("MMM")</div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="col-md-12">
+                            <h4 class="eventText">
+                                @item.Title
+                            </h4>
+                        </div>
+                        <div class="col-md-12">
+                            <h6 class="eventTextSmall">
+                                @item.DateOfEvent.ToString("dddd") | @item.DateOfEvent.ToString("HH:mm")
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="/Home/upcommingevents" class="btn btn-info event-btn">MORE</a>
+                    </div>
+                    <div class="col-md-12 divider"></div>
+                </div>
+
+            }
+
+
+            <div class="col-md-10 col-md-push-2">
+                <div class="col-md-2">
+                    <div class="date-calendar">
+                        <div class="date-calendar-num">20</div>
+                        <div class="date-calendar-month">JULY</div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="col-md-12">
+                        <h4 class="eventText">
+                            FAMILY SUNDAY
+                        </h4>
+                    </div>
+                    <div class="col-md-12">
+                        <h6 class="eventTextSmall">
+                            Sunday | 9.30 AM
+                        </h6>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <a href="/home/Upcomingevents" class="btn btn-info event-btn">MORE</a>
+                </div>
+                <div class="col-md-12 divider"></div>
+            </div>
+            <div class="col-md-10 col-md-push-2">
+                <div class="col-md-2">
+                    <div class="date-calendar">
+                        <div class="date-calendar-num">20</div>
+                        <div class="date-calendar-month">JULY</div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="col-md-12">
+                        <h4 class="eventText">
+                            FAMILY SUNDAY
+                        </h4>
+                    </div>
+                    <div class="col-md-12">
+                        <h6 class="eventTextSmall">
+                            Sunday | 9.30 AM
+                        </h6>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <a href="/home/Upcomingevents" class="btn btn-info event-btn">MORE</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+
+            <div class="col-md-10">
+                <h4 class="GiveHeading">GIVE ONLINE</h4>
+            </div>
+            <div class="col-md-10">
+                @foreach (var item in Model.Abouts.Where(x => x.Id == 1))
+                {
+                    <p class="Givetext">
+
+                        @item.Description
+
+                    </p>
+                    <div class="col-md-3">
+                        <a href="/home/About" class="giveLink">READ MORE <span>>></span></a>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    </div>
+</div>

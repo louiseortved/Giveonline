@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Giveonline.Models.Product>
+@{
+    ViewBag.Title = "Shop";
+    Layout = "~/Views/Shared/Frontend/_Layout.cshtml";
+}
+
+<div id="page-content">
+    <div class="row">
+        <div class="col-md-12 bannerImage">
+
+            <div class="col-md-4 col-md-push-1 sliderboxBanner">
+                <h2 class="sliderboxHeading">
+                    <b>@ViewBag.Title</b>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 col-md-push-1">
+            
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <img class="img-responsive imgShop" src="/Uploads/@item.ImageUrl" />
+
+                    <div class="col-md-10 col-md-push-1 shoponlineIndexBox1">
+                        <p class=" shoponlineIndexBoxText1">
+                            @item.Title
+                        </p>
+                        <div class="col-md-2 col-md-push-10 shoponlineIndexBox2">
+                            <p class=" shoponlineIndexBoxText2">
+                                &pound; @item.Amount
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            }
+     
+            <div class="col-md-4">
+
+                <img class="img-responsive imgShop2" src="~/Content/styles/Images/shop2.png"/>
+
+            </div>
+            <div class="col-md-4">
+
+                <img class="img-responsive imgShop3" src="~/Content/styles/Images/shop3.png"/>
+            </div>
+        </div>
+        <div class="col-md-11 col-md-push-1">
+            <div class="col-md-4">
+
+                <img class="img-responsive imgShop" src="~/Content/styles/Images/shop.png" />
+            </div>
+            <div class="col-md-4">
+
+                <img class="img-responsive imgShop2" src="~/Content/styles/Images/shop2.png" />
+            </div>
+            <div class="col-md-4">
+
+                <img class="img-responsive imgShop3" src="~/Content/styles/Images/shop3.png" />
+            </div>
+        </div>
+    </div>
+</div>
+

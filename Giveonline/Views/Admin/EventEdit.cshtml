@@ -1,0 +1,114 @@
+﻿@model Giveonline.Models.Event
+
+
+@{
+    ViewBag.Title = "EventEdit";
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+}
+
+
+<div id="page-content">
+    <div class="content-header">
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="/admin/index"><i class="fa fa-tachometer"></i> Dashboard</a>
+            </li>
+            <li class="active">
+                <a href="#"><i class="fa fa-calendar"></i> Events</a>
+            </li>
+            <li>
+                <a href="/admin/donationlist"><i class="fa fa-money"></i> Donations</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-folder-open"></i> Stories</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-users"></i> About Us</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="block">
+                <div class="block-title">
+                    <h2><i class="fa fa-plus"></i> <strong>Edit</strong> Event</h2>
+                </div>
+                <form action="/admin/eventEdit" method="post" class="form-horizontal form-bordered">
+
+
+
+                    <input type="hidden" name="Id" value="@Model.Id" />
+
+
+
+
+
+
+
+
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="Title">Title</label>
+                        <div class="col-md-9">
+                            <input type="text" value="@Model.Title" class="form-control" name="Title" placeholder="Indtast title">
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="Description">Beskrivelse</label>
+                        <div class="col-md-9">
+                            <textarea type="text" class="form-control" name="Description" placeholder="Beskrivelse">@Model.Description</textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="DateOfEvent">Dato</label>
+                        <div class="col-md-8">
+                            <input type="date" class="form-control" name="DateOfEvent" placeholder="Indtast en dato">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="Location">Sted</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="Location" placeholder="Indtast en lokation" required>
+                        </div>
+                    </div>
+
+
+                    @*<div class="form-group">
+                            <label class="col-md-3 control-label" for="Price">Pris</label>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-money"></i></div>
+                                    <input type="text" id="product-price" name="Price" class="form-control" placeholder="0,00" required>
+                                </div>
+                            </div>
+                        </div>*@
+
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="image">Image</label>
+                        <div class="col-md-8">
+                            <img class="img-responsive" style="height: 200px; width: auto" src="/Uploads/@Model.ImageUrl" />
+                            <input id="image" type="file" name="file" class="form-control" placeholder="Upload et nyt billede" />
+                        </div>
+                    </div>
+
+                    <div class="form-group form-actions">
+                        <div class="col-md-9 col-md-offset-3">
+                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-floppy-o"></i> Gem</button>
+                            <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Fortryd</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

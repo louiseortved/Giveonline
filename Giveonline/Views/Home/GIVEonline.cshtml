@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Giveonline.Models.Donation>
+@{
+    ViewBag.Title = "GIVEonline";
+    Layout = "~/Views/Shared/Frontend/_Layout.cshtml";
+}
+
+<div id="page-content">
+    <div class="row">
+        <div class="col-md-12 bannerImage">
+
+            <div class="col-md-4 col-md-push-1 sliderboxBanner">
+                <h2 class="sliderboxHeading">
+                    <b>@ViewBag.Title</b>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 col-md-push-1">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+
+                    <img class="img-responsive imgGive" src="/Uploads/@item.ImageUrl"/>
+                    <div class="col-md-10 col-md-push-1 giveonlineIndexBox1">
+                        <p class=" giveonlineIndexBoxText1">
+                            @item.Title
+                        </p>
+                        <div class="col-md-2 col-md-push-10 giveonlineIndexBox2">
+                            <p class=" giveonlineIndexBoxText2">
+                                &pound; @item.Amount <br/>
+                                DONATE
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            }
+
+            <div class="col-md-4">
+
+                <img class="img-responsive imgGive2" src="~/Content/styles/Images/don2.png"/>
+
+            </div>
+            <div class="col-md-4">
+
+                <img class="img-responsive imgGive3" src="~/Content/styles/Images/don3.png"/>
+            </div>
+        </div>
+        <div class="col-md-11 col-md-push-1">
+            <div class="col-md-4">
+
+                <img class="img-responsive imgGive" src="~/Content/styles/Images/don1.png" />
+            </div>
+            <div class="col-md-4">
+
+                <img class="img-responsive imgGive2"  src="~/Content/styles/Images/don2.png" />
+            </div>
+            <div class="col-md-4">
+
+                <img class="img-responsive imgGive3"  src="~/Content/styles/Images/don3.png" />
+            </div>
+        </div>
+    </div>
+</div>

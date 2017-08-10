@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Giveonline.Models.About>
+
+@{
+    ViewBag.Title = "About GIVEonline";
+}
+
+
+<div id="page-content">
+    <div class="row">
+        <div class="col-md-12 bannerImage">
+
+            <div class="col-md-4 col-md-push-1 sliderboxBanner">
+                <h2 class="sliderboxHeading">
+                    <b>@ViewBag.Title</b>
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 col-md-push-1 margin-left2">
+            <div class="tab-content">
+                @foreach (var item in Model)
+                {
+
+                    if (item == Model.FirstOrDefault())
+                    {
+                        <div id="@item.Title" class="tab-pane fade in active">
+                            <h4 class="UpcommingHeading">@item.Title</h4>
+                            <p>@item.Description</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <div id="@item.Title" class="tab-pane fade in">
+                            <h4 class="UpcommingHeading">@item.Title</h4>
+                            <p>@item.Description</p>
+                        </div>
+                    }
+                }
+             
+             
+            </div>
+
+        </div>
+        <div class="col-md-3 col-md-push-2 margin-left1">
+            <div class="col-md-12 dividerabout"></div>
+            <ul class="nav nav-pills nav-stacked">
+                @foreach (var item in Model)
+                {
+                    if (item == Model.FirstOrDefault())
+                    {
+                        <li class="active"><a class="about_a" data-toggle="pill" href="#@item.Title"><span class="arrow_active"> < </span>@item.Title</a></li>
+                        <li>
+                            <div class="col-md-12 dividerabout"></div></li>
+                    }
+
+                    else
+                    {
+                        <li><a class="about_a" data-toggle="pill" href="#@item.Title"><span class="arrow_active"> < </span>@item.Title</a></li>
+                        <li>
+                            <div class="col-md-12 dividerabout"></div>
+                        </li>
+                    }
+                }
+
+
+
+            </ul>
+
+        </div>
+    </div>
+
+
+</div>
+
+@section scripts{
+
+    <script>
+        $(".about_a").click(function (e) {
+            e.preventDefault();
+            $(".about_a").toggleClass("arrow_active");
+        });
+    </script>
+}

@@ -1,0 +1,64 @@
+﻿@model Giveonline.Models.Subscriber
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            <span class="fa fa-envelope"></span>  Newsletter Signup
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="media">
+            <div class="media-body">
+                <h4 class="media-heading text-primary text-center">
+                    Subscribe and get the latest news about: 
+                </h4>
+                <p class="margin-top-10 margin-bottom-20 text-center">
+                    upcomming events, stories and much much more
+                </p>
+                <form role="form" action="/Home/AddSubscriber" method="post">
+                    <div class="form-group">
+                        <label for="Name" class="hidden">Name</label>
+                        <input type="text" id="Name" name="Name" class="form-control" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Email" class="hidden">Email address</label>
+                        <input type="text" id="Email" name="Email" class="form-control" placeholder="Email">
+                    </div>
+                    <button type="submit" class="btn btn-default btn-block btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+  
+    @*<div class="form-group">
+        <div class="col-xs-12">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                <input type="text" id="Email" name="Email" class="form-control input-lg" placeholder="Email">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input type="text" id="Name" name="NAme" class="form-control input-lg" placeholder="Name">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group form-actions">
+      
+        <div class="col-xs-8 text-right">
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> SUBSCRIBE</button>
+        </div>
+    </div>
+
+
+</form>*@
+
+

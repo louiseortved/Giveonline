@@ -1,0 +1,85 @@
+﻿@using System.Management
+@using Giveonline.Extensions
+@model IEnumerable<Giveonline.Models.Story>
+
+
+@{
+    ViewBag.Title = "Stories From Events";
+    Layout = "~/Views/Shared/Frontend/_Layout.cshtml";
+}
+
+
+
+<div id="page-content">
+    <div class="row">
+        <div class="col-md-12 bannerImage">
+
+            <div class="col-md-4 col-md-push-1 sliderboxBanner">
+                <h2 class="sliderboxHeading">
+                    <b>@ViewBag.Title</b>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 col-md-push-1">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4" data-id="@item.Id">
+
+                    @*@if (item.ImageUrl.Length > 0)
+                        {
+                            @*<img class="img-responsive" style="height: 100px; width: auto" src="~/Uploads/@item.ImageUrl" alt=@item.Title />*@
+
+                    @*}*@
+                    @*else
+                        {*@
+
+                    <img class="img-responsive imgGive" src="/Uploads/@item.Event.ImageUrl" />
+                    @*}*@
+                </div>
+
+                <div class="col-md-4" data-id="@item.Id">
+
+                    <div class="col-md-10 col-md-push-1 giveonlineIndexBox1">
+                        <p class=" giveonlineIndexBoxText1">
+                            @item.Title af @item.Author about Event: @item.Event.Title
+                        </p>
+                        <div class="col-md-2 col-md-push-10 giveonlineIndexBox2">
+                            <p class=" giveonlineIndexBoxText2">
+                                @item.Event.DateOfEvent.ToString("dd")<br />
+                                @item.Event.DateOfEvent.ToString("MMM")
+
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="col-md-4" data-id="@item.Id">
+
+                    <div class="col-md-10 col-md-push-1 giveonlineIndexBox1">
+                        <p class=" giveonlineIndexBoxText1">
+                            @Html.Raw(Helper.TextFormat.CropText(item.Content,300,true))
+                        
+                        </p>
+
+
+                    </div>
+                </div>
+
+
+            }
+
+
+
+        </div>
+
+    </div>
+</div>
+

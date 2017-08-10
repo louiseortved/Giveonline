@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Scripts/dropzone/dropzone.css" rel="stylesheet" />
+    <link href="~/Content/styles/css/layout.min.css" rel="stylesheet" />
+    @RenderSection("Styles", false)
+    @Styles.Render("~/Content/dropzonescss")
+</head>
+<body>
+
+<div id="wrapper">
+
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+            <a href="#">
+                <i class="fa fa-cogs"></i> Admin Panel
+            </a>
+        </li>
+    </ul>
+
+    <div class="sidebar-section sidebar-user clearfix sidebar-nav-mini-hide">
+        <div class="sidebar-user-avatar">
+            <a href="#">
+                <img src="/Content/styles/Images/avatar-10.jpeg" alt="avatar">
+            </a>
+        </div>
+        <div class="sidebar-user-name">AdminUser </div>
+        <div class="sidebar-user-links">
+
+            <a href="/admin/adminprofile" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Profile"><i class="fa fa-user"></i></a>
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Messages"><i class="fa fa-envelope"></i></a>
+            <a href="#myModal" class="enable-tooltip" data-placement="bottom" title="" onclick="$('#modal-user-settings').modal('show');" data-original-title="Settings" data-toggle="modal"><i class="fa fa-cog"></i></a>
+            <a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Logout"><i class="fa fa-sign-out"></i></a>
+
+        </div>
+    </div>
+  
+
+
+    <ul class="sidebar-nav lower-nav">
+        <li>
+            <a href="/Admin/Index"><i class="fa fa-tachometer"></i>Dashboard</a>
+        </li>
+        <li class="sidebar-nav-menu">
+            <a href="#" >
+                <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+                <i class="fa fa-shopping-cart sidebar-nav-icon"></i>
+                <span class="sidebar-nav-mini-hide">Shop</span>
+            </a>
+            <ul>
+                <li>
+                    <a href="#">Orders</a>
+                </li>
+                <li>
+                    <a href="#">Order View</a>
+                </li>
+                <li>
+                    <a href="/Admin/ProductList"><i class="fa fa-book"></i>Produkter</a>
+                </li>
+                <li>
+                    <a href="#">Product Edit</a>
+                </li>
+                <li>
+                    <a href="">Customer View</a>
+                </li>
+            </ul>
+        </li>
+        <li class="sidebar-nav-menu">
+            <a href="#" >
+                <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+                <i class="fa fa-calendar sidebar-nav-icon"></i>
+                <span class="sidebar-nav-mini-hide">GIVEonline</span>
+            </a>
+            <ul>
+                <li>
+                    <a href="/Admin/EventList">Events</a>
+                </li>
+                <li>
+                    <a href="/Admin/DonationList">Donations</a>
+                </li>
+                <li>
+                    <a href="/Admin/StoryList">Stories</a>
+                </li>
+                <li>
+                    <a href="/Admin/ContentList">Content </a>
+                </li>
+                <li>
+                    <a href="/admin/Slider"> Slider</a>
+                </li>
+            </ul>
+        </li>
+        <li class="sidebar-nav-menu">
+            <a href="#" >
+                <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+                <i class="fa fa-calendar sidebar-nav-icon"></i>
+                <span class="sidebar-nav-mini-hide">Products</span>
+            </a>
+            <ul>
+                <li>
+                    <a href="/Admin/Category"><i class="fa fa-cubes"></i>Kategorier</a>
+                </li>
+                <li>
+                    <a href="/Admin/ProductList"><i class="fa fa-book"></i>Produkter</a>
+                </li>
+                <li>
+                    <a href="/Admin/Brand"><i class="fa fa-tags"></i>Brands</a>
+                </li>
+                <li>
+                    <a href="/Admin/size"><i class="fa fa-link"></i>Størrelser</a>
+                </li>
+            </ul>
+        </li>
+       
+
+      
+        
+        <li class="sidebar-nav-menu">
+            <a href="#" >
+                <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+                <i class="fa fa-calendar sidebar-nav-icon"></i>
+                <span class="sidebar-nav-mini-hide">Users</span>
+            </a>
+            <ul>
+         
+                <li>
+                    <a href="/Account/Rolelist"><i class="fa fa-user"></i>Roller</a>
+                </li>
+                <li>
+                    <a href="/Account/GetRoles"><i class="fa fa-user"></i>Se Roller</a>
+                </li>
+                <li>
+                    <a href="/Account/RoleAddToUSer"><i class="fa fa-user"></i>Tilføj Roller</a>
+                </li>
+            </ul>
+        </li>
+        
+        <li>
+            <a href="/Admin/newsletter"><i class="fa fa-link"></i>Nyhedsbrev</a>
+        </li>
+
+    </ul>
+
+</div>
+        
+        
+        <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h2 class="modal-title"><i class="fa fa-pencil"></i> Settings</h2>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" onsubmit="return false;">
+                        <fieldset>
+                            <legend>Vital Info</legend>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Username</label>
+                                <div class="col-md-8">
+                                    <p class="form-control-static">Admin</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user-settings-email">Email</label>
+                                <div class="col-md-8">
+                                    <input type="email" id="user-settings-email" name="user-settings-email" class="form-control" value="admin@example.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user-settings-notifications">Email Notifications</label>
+                                <div class="col-md-8">
+                                    <label class="switch switch-primary">
+                                        <input type="checkbox" id="user-settings-notifications" name="user-settings-notifications" value="1" checked="">
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Password Update</legend>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user-settings-password">New Password</label>
+                                <div class="col-md-8">
+                                    <input type="password" id="user-settings-password" name="user-settings-password" class="form-control" placeholder="Please choose a complex one..">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="user-settings-repassword">Confirm New Password</label>
+                                <div class="col-md-8">
+                                    <input type="password" id="user-settings-repassword" name="user-settings-repassword" class="form-control" placeholder="..and confirm it!">
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="form-group form-actions">
+                            <div class="col-xs-12 text-right">
+                                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-sm btn-primary">Save Changes</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+
+        
+
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <header class="navbar navbar-default">
+                            <ul class="nav navbar-nav-custom">
+                                <li class="top-bar">
+                                    <a href="#menu-toggle" class="btn btn-admin" id="menu-toggle"><i class="fa fa-navicon"></i></a>
+                                </li>
+                            </ul>
+                            <form action="#" method="post" class="navbar-form-custom">
+                                <div class="form-group">
+                                    <input type="text" id="top-search" name="top-search" class="form-control" placeholder="Search..">
+                                </div>
+                            </form>
+                        </header>
+                    </div>
+
+                    <div class="col-lg-12">
+                        @RenderBody()
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    <!--Modal-->
+
+   
+
+
+
+    <!-- jQuery -->
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+<script src="~/Scripts/bootstrap.min.js"></script>
+    
+
+<!-- Menu Toggle Script -->
+    
+    
+
+    
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+ 
+        $("li").click(function () {
+            if ($(this).children('ul').is(':hidden')) {
+                $('li').children('ul').slideUp('slow');
+                $(this).children('ul').slideDown('slow');
+                $(this).children("a").removeClass("open");
+            }
+            else {
+                $(this).children('ul').slideUp('fast');
+                $(this).children("a").addClass("open");
+            }
+
+        });
+
+
+
+    //$(".sidebar-nav-menu").on("click", function() {
+    //    $(".sidebar-nav-menu>ul>li>ul ").slideDown();
+    //    //$(this).children("a").toggleClass("open");
+
+
+    //});
+    </script>
+    
+
+
+@*@Scripts.Render("bundles/dropzonescripts")*@
+    @RenderSection("Scripts", required: false)
+
+
+    @*<div class="modal-backdrop fade in"></div>*@
+
+</body>
+</html>

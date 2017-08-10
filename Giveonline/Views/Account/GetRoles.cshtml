@@ -1,0 +1,63 @@
+﻿@using System.Collections
+
+@{
+    ViewBag.Title = "UserRoleList";
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+}
+
+<div id="page-content">
+    <div class="content-header">
+        <div class="header-section">
+            <h1>
+                <i class="fa fa-user"></i>Se roller på brugere<br><small>Her kan du oprette se hvilke roller, der er tilknyttet hvilke brugere</small>
+            </h1>
+        </div>
+    </div>
+    <ul class="breadcrumb breadcrumb-top">
+        <li>Se roller</li>
+
+
+    </ul>
+    <div class="block block-alt-noborder" style="min-height: 300px">
+        <h3 class="sub-header">Se rolle <small>på en specifik bruger</small></h3>
+
+
+
+        <form role="form" action="#" method="post">
+
+            <div class="form-group">
+                <label class="control-label" for="UserName">Brugernavn</label>
+
+                @Html.DropDownList("UserName", (IEnumerable<SelectListItem>)ViewBag.Users,
+                        "Select user", new { @class = "form-control" })
+
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="submit" value="Get roles for this user" class="btn btn-primary" style="float: right" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-8">
+
+                    @if (ViewBag.RolesForThisUser != null)
+                    {
+                        <div>
+                            <h4>Roles for this User</h4>
+                            <ol>
+                                @foreach (var item in ViewBag.RolesForThisUser)
+                                {
+                                    <li>@item</li>
+                                }
+                            </ol>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

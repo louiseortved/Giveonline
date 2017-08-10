@@ -1,0 +1,178 @@
+﻿
+@model IEnumerable<Giveonline.Models.Category>
+
+@{
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+    int I = 4;
+}
+
+
+
+<div id="page-content">
+    <div class="content-header">
+
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="/admin/index"><i class="fa fa-tachometer"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-shopping-basket"></i> Orders</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-shopping-cart"></i> Order View</a>
+            </li>
+            <li class="active">
+                <a href="#"><i class="fa fa-shopping-bag"></i> Products</a>
+            </li>
+            @*<li>
+                    <a href="/admin/ProductEdit"><i class="fa fa-pencil"></i> Product Edit</a>
+                </li>*@
+            <li>
+                <a href="#"><i class="fa fa-user"></i> Customer View</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row text-center">
+        <div class="col-sm-6 col-lg-3">
+            <a href="/Admin/ProductCreate" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background-success">
+                    <h4 class="widget-content-light"><strong>Add New</strong> Product</h4>
+                </div>
+                <div class="widget-extra-full"><span class="h2 text-success animation-expandOpen"><i class="fa fa-plus"></i></span></div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a href="javascript:void(0)" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background-danger">
+                    <h4 class="widget-content-light"><strong>Out of</strong> Stock</h4>
+                </div>
+                <div class="widget-extra-full"><span class="h2 text-danger animation-expandOpen">71</span></div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a href="javascript:void(0)" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background-dark">
+                    <h4 class="widget-content-light"><strong>Top</strong> Sellers</h4>
+                </div>
+                <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">20</span></div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <a href="javascript:void(0)" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background-dark">
+                    <h4 class="widget-content-light"><strong>All</strong> Products</h4>
+                </div>
+                <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">@I</span></div>
+            </a>
+        </div>
+    </div>
+    <div class="block block-alt-noborder">
+        <h3 class="sub-header">
+            ProduktListe <small>...inddelt i kategorier</small>
+        </h3>
+
+
+
+        @{
+            foreach (var cat in Model)
+            {
+                if (cat.Products.Any())
+                {
+
+
+                    <table class="table table-striped">
+
+
+                        <thead>
+                        <tr>
+                            <td>
+
+                                <h3>@cat.Title</h3>
+                            </td>
+                        </tr>
+                        <tr class="row-name">
+                            <th>Billede</th>
+                            <th>Title</th>
+                            <th>Beskrivelse</th>
+                            <th>Pris</th>
+                            <th>Størrelser</th>
+                            <th>Antal på Lager</th>
+                            <th>På Udsalg</th>
+                            <th>Actions</th>
+
+                        </tr>
+
+                        </thead>
+                        <tbody>
+
+                        @{foreach (var prod in cat.Products)
+                            {
+
+                               
+                                I++;
+                                <tr class="row-content" data-id="@prod.Id">
+                           
+                                    <td style="width: 100px">
+                                        @if (prod.ImageUrl.Length > 0)
+                                        {
+                                            <img class="img-responsive" style="height: 100px; width: auto" src="~/Uploads/@prod.ImageUrl" alt=@prod.Title/>
+
+                                        }
+                                        else
+                                        {
+                                            <img class="img-responsive" style="height: 75px; width: auto" src="~/Content/styles/Images/noImage.png"/>
+
+                                        }
+
+                                    </td>
+
+                                    <td style="width: 200px">@prod.Title</td>
+                                    <td style="width: 300px">@prod.Description</td>
+                                    <td>@prod.Price</td>
+
+                                    <td>
+                                        <ul>
+                                            @foreach (var size in prod.SizeProducts)
+                                            {
+
+                                                <li>@size.Size.Title</li>
+
+                                            }
+                                        </ul>
+                                    </td>
+                                    <td>@prod.Amount</td>
+
+
+                                    <td>
+                                        <label class="switch switch-primary">
+                                            <input type="checkbox" id="product-status" name="@prod.OnSale" checked=""><span></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-danger edit" href="/admin/ProductDelete/@prod.Id" aria-label="Settings">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+
+                                        <a class="btn btn-info edit" href="@Url.Action("ProductEdit", new {id = prod.Id})" aria-label="Settings">
+                                            <i class="fa fa-edit" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                            }
+                        }
+                        </tbody>
+                    </table>
+
+                }
+
+
+                
+
+
+            }
+        }
+    </div> 
+</div>
+
+

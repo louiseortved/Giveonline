@@ -1,0 +1,344 @@
+﻿
+@using Giveonline.Models
+@model Giveonline.ViewModels.ProductVM
+
+@{
+    ViewBag.Title = "ProductCreate";
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+}
+
+
+
+<div id="page-content">
+    <div class="content-header">
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="/Admin/Index"><i class="fa fa-tachometer"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-shopping-basket"></i> Orders</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-shopping-cart"></i> Order View</a>
+            </li>
+            <li>
+                <a href="/Admin/ProductList"><i class="fa fa-shopping-bag"></i> Products</a>
+            </li>
+            <li class="active">
+                <a href="/Admin/ProductCreate"><i class="fa fa-pencil"></i> Product</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-user"></i> Customer View</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="block">
+                <div class="block-title">
+                    <h2><i class="fa fa-pencil"></i> <strong>General</strong> Data</h2>
+                </div>
+
+                <form role="form" action="/Admin/ProductCreate" id="productCreate" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="CategoryId">Kategori</label>
+                        <div class="col-md-8">
+                            <select id="CategoryId" class="form-control select-chosen" name="CategoryId" required>
+                                <option hidden value="0">Vælg Kategori</option>
+                                @foreach (var category in Model.Categories)
+                                {
+                                    <option value="@category.Id">@category.Title</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="BrandId">Mærke</label>
+                        <div class="col-md-8">
+                            <select id="BrandId" class="form-control select-chosen" name="BrandId" required>
+                                <option hidden value="0">Vælg Brand</option>
+                                @foreach (var brand in Model.Brands)
+                                {
+                                    <option value="@brand.Id">@brand.Title</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="SizeId">Størrelse</label>
+                        <div class="col-md-8">
+                            <select multiple class="form-control" name="SizeId" required>
+                                <option hidden value="0">Vælg Kategori</option>
+                                @foreach (var size in Model.Sizes)
+                                {
+                                    <option value="@size.Id">@size.Title</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="Titel">Titel</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="Title" placeholder="Indtast titel" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="Description">Beskrivelse</label>
+                        <div class="col-md-8">
+                            <textarea type="text" class="form-control" name="Description" placeholder="Beskrivelse" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="Price">Pris</label>
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-money"></i></div>
+                                <input type="text" id="product-price" name="Price" class="form-control" placeholder="0,00" required>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="image">Image</label>
+                        <div class="col-md-8">
+                            <input id="image" type="file" name="file" class="form-control" placeholder="Upload et nyt billede" required />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="files">Image</label>
+                        <div class="col-md-8">
+                            <input multiple id="file" type="file" name="files" class="form-control" placeholder="Upload et nyt billede" required />
+                        </div>
+                    </div>
+
+
+                    @*<div class="form-group">
+                            <label class="control-label" for="Price">Pris</label>
+                            <input type="text" class="form-control" name="Price" placeholder="Indtast Pris">
+                        </div>*@
+                    @*<div class="form-group">
+                            <label class="control-label" for="InStock">På Lager</label>
+                            <input type="checkbox" value="" name="InStock" @Html.Raw(Model.InStock? "checked" : "")>
+                        </div>*@
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="Amount">Antal</label>
+                        <div class="col-md-8">
+                            <input type="number" class="form-control" name="amount" placeholder="Indtast antal" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="OnSale">På Udsalg?</label>
+                        <div class="col-md-9">
+                            <label class="switch switch-primary">
+                                <input type="checkbox" id="product-status" name="OnSale" checked=""><span></span>
+                            </label>
+                        </div>
+                    </div>
+
+
+
+
+
+                    @*<div class="form-group">
+                            <label class="control-label" for="OnSale">På Udsalg</label>
+                            <input type="checkbox" name="OnSale">
+                        </div>*@
+
+
+
+
+
+
+
+
+
+                    <div class="form-group form-actions">
+                        <div class="col-md-9 col-md-offset-3">
+                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-floppy-o"></i> Gem</button>
+                            <a href="@Url.Action("ProductList")" type="reset" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Fortryd</a>
+
+
+                        </div>
+                    </div>
+
+
+                </form>
+
+
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-6">
+            <div class="block">
+                <div class="block-title">
+                    <h2><i class="fa fa-picture-o"></i> <strong>Product</strong> Images</h2>
+                </div>
+                <div class="block-section">
+                    <form action="/Admin/ProductCreate" class="dropzone dz-clickable"><div class="dz-default dz-message"><span>Drop files here to upload</span></div></form>
+                </div>
+                <table class="table table-bordered table-striped table-vcenter">
+                    <tbody>
+                    <tr>
+                                           
+                        @*@foreach (var item in Model.Images)
+                        {
+                            <td style="width: 20%;">
+                                <a href="/Uploads/@item.ImgUrl" data-toggle="lightbox-image">
+                                    <img src="/Uploads/@item.ImgUrl" alt="" class="img-responsive center-block" style="max-width: 110px;">
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <label class="switch switch-primary">
+                                    <input type="checkbox" checked=""><span></span>
+                                </label>
+                                Cover
+                            </td>
+                            <td class="text-center">
+                                <a href="javascript:void(0)" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i> Delete</a>
+                            </td>
+                        }*@
+                     
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+
+            <!-- #region name -->
+            @*<div id="page-content">
+                        <div class="content-header">
+                            <div class="header-section">
+                                <h1>
+                                    <i class="fa fa-plus"></i>Opret et produkt<br><small>Her kan du oprette et nyt produkt</small>
+                                </h1>
+                            </div>
+                        </div>
+                        <ul class="breadcrumb breadcrumb-top">
+                            <li>Produkter</li>
+                            <li>Opret et nyt Produkt</li>
+
+                </ul>
+                        <div class="block block-alt-noborder">
+                            <h3 class="sub-header">Opret et produkt <small></small></h3>
+
+                            <form role="form" action="/Admin/ProductCreate" method="post" enctype="multipart/form-data">
+
+                                <div class="form-group">
+                                    <label class="control-label" for="CategoryId">Kategori</label>
+                                    <select class="form-control" name="CategoryId">
+                                        <option hidden value="0">Vælg Kategori</option>
+                                        @foreach (var category in Model.Categories)
+                                        {
+                                            <option value="@category.Id">@category.Title</option>
+                                        }
+
+                                    </select>
+                                </div>
+
+                <div class="form-group">
+                            <select multiple class="form-control" name="SizeId">
+                                <option hidden value="0">Vælg Kategori</option>
+                                @foreach (var size in Model.Sizes)
+                                {
+                                    <option value="@size.Id">@size.Title</option>
+                                }
+
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input id="image" type="file" name="file" class="form-control" placeholder="Upload et nyt billede" />
+                        </div>
+
+
+                <div class="form-group">
+                            <label class="control-label" for="Title">Title</label>
+                            <input type="text" class="form-control" name="Title" placeholder="Indtast titel">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Description">Beskrivelse</label>
+                            <textarea type="text" class="form-control" name="Description" placeholder="Beskrivelse"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Price">Pris</label>
+                            <input type="text" class="form-control" name="Price" placeholder="Indtast Pris">
+                        </div>
+                <div class="form-group">
+                            <label class="control-label" for="InStock">På Lager</label>
+                            <input type="checkbox" value="" name="InStock" @Html.Raw(Model.InStock? "checked" : "")>
+                        </div>
+                <div class="form-group">
+                                        <label class="control-label" for="Amount">Antal</label>
+                                        <input type="number" class="form-control" name="amount" placeholder="Indtast antal">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="OnSale">På Udsalg</label>
+                                        <input type="checkbox" name="OnSale">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-default">Gem</button>
+                                    <a href="@Url.Action("ProductList")" type="reset" class="btn btn-danger">Cancel</a>
+
+                                </form>
+                            </div>
+                        </div>*@
+
+            <!-- #endregion -->
+
+
+        </div>
+    </div>
+</div>
+
+
+@section Styles{
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css" rel="stylesheet" />
+
+}
+
+
+@section scripts{
+
+
+    <script type="text/javascript" src="~/Scripts/dropzone/dropzone.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Main.js"></script>
+
+    <script type="text/javascript">
+        Dropzone.options.dropzoneForm = {
+            init: function () {
+                myDropzone = this;
+                this.on("complete", function (data) {
+                    var res = JSON.parse(data.xhr.responseText);
+                    //console.log(res.Message);
+                });
+            }
+        };
+
+    </script>
+}

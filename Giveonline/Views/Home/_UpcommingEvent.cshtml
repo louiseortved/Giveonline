@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Giveonline.Models.Event>
+    
+
+
+
+    @foreach (var item in Model)
+    {
+        <h5 class="NewslettersmallHeading">@item.DateOfEvent.ToString("dddd") at @item.DateOfEvent.ToString("HH:mm") &amp; @item.DateOfEvent.ToString("HH:mm")</h5>
+        <p class="footertext">@item.Description</p>
+    }
+
+
